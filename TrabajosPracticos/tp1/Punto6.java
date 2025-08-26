@@ -19,9 +19,9 @@ public class Punto6 {
         producto= producto * num;
         cont= cont + 1;
        }
-       System.out.println("Suma de enteros " + suma);
-       System.out.println("Producto de enteros " + producto);
-
+       System.out.println("Suma de enteros: " + suma);
+       System.out.println("Producto de enteros: " + producto);
+       scanner.close();
 
     }
 }
