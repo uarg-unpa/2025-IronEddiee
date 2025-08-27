@@ -21,6 +21,6 @@ public class Punto4 {
                 System.out.println("El mayor es: " + nro3);
             }
         }
-
+        scanner.close();
     }
 }

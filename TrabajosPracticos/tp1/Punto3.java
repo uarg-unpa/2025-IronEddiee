@@ -33,6 +33,6 @@ public class Punto3 {
         System.out.println("Ahora la variable A es: " + a);
         System.out.println("Ahora la variable B es: " + b);
         System.out.println("Ahora la variable c es: " + c);
-
+        scanner.close();
     }
 }
