@@ -9,8 +9,9 @@ public class Televisores {
         
         boolean cond= true;
         do{
-             System.out.println("MENU");
-              System.out.println("1 Informacion de tv \n2 Estado \n3 Cambio de volumen \n4 Cambio de canal \n5 Apagar");
+            System.out.println("");
+            System.out.println("MENU");
+            System.out.println("1 Informacion de tv \n2 Ensender televisor \n3 Cambio de volumen \n4 Cambio de canal \n5 Apagar \n");
             int opcion= scanner.nextInt();
 
             switch (opcion) {
@@ -38,8 +39,12 @@ public class Televisores {
                     int canal= scanner.nextInt();
                     tele1.modificadorCanal(canal);
                     System.out.println("Se cambio al canal: " + tele1.getCanal());
-                    System.out.println("¿Desea volver al canal anterior?");
-                    
+                    System.out.println("¿Desea volver al canal anterior?\n 1 Si\n 2 No");
+                    int volver= scanner.nextInt();
+                    if (volver == 1){
+                        tele1.volverCanal(volver);
+                        System.out.println("Se vuelve al canal: " + tele1.getCanal());
+                    }
                     break;
                 
                 case 5:

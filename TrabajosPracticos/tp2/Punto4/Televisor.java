@@ -5,11 +5,13 @@ los set y get que sean necesarios, y con los métodos para encender, apagar, sub
 el volumen, y volver al canal antes seleccionado */
 
 public class Televisor{
-    String marca;
-    String modelo;
-    String estado;
-    int volumen;
-    int canal;
+    private String marca;
+    private String modelo;
+    private String estado;
+    private int volumen;
+    private int canal;
+    private int historialCanal;
+    
 
     //constructor
     public Televisor (String marca, String modelo, String estado, int volumen, int canal){
@@ -18,6 +20,7 @@ public class Televisor{
         this.estado= estado;
         this.volumen= volumen;
         this.canal= canal;
+        this.historialCanal= canal;
     }
 
     //metodo get
@@ -73,26 +76,30 @@ public class Televisor{
 */
 
     public void modificadorVolumen(int cambio){
-        int modVolumen= cambio;
         //limitar nivel de 0 a 10
-        if (modVolumen < 0){
+        if (cambio < 0){
             this.volumen= 0;
-        }else if (modVolumen > 10){
+        }else if (cambio > 10){
             this.volumen= 10;
         }else{
-            this.volumen= modVolumen;
+            this.volumen= cambio;
         }
     }
 
     public void modificadorCanal(int cambio){
-        int modCanal= cambio;
         //limitar el canal de 1 a 100
-        if (modCanal < 0){
+        if (cambio < 0){
             this.canal= 1;
-        }else if (modCanal > 100){
+        }else if (cambio > 100){
             this.canal= 100;
         }else{
-            this.canal= modCanal;
+            this.canal= cambio;
+        }
+    }
+
+    public void volverCanal(int condicion){
+        if (condicion ==1){
+            this.canal= this.historialCanal;
         }
     }
 
