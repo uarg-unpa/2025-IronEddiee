@@ -53,8 +53,13 @@ public class Hora {
     public boolean validacion (int hh, int mm, int ss){
         return (hh >= 0 && hh <= 23 ) && (mm >= 0 && mm <= 59) && (ss >= 0 && ss <= 59 );
     }  
-    
-    public String imprimirInfo(){
-        return "Hora: " + this.getHora() + " |Minutos: " + this.getMinutos() + " |segundos: " + this.getSegundos();
+
+     public String formatoHora() {
+        return String.format("%02d:%02d:%02d", this.hora, this.minutos, this.segundos);
     }
+
+    public int convertirEnMinutos(){
+        return this.hora * 60 + this.minutos + (this.segundos / 60);
+    }
+
 }
