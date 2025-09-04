@@ -59,7 +59,13 @@ public class Hora {
     }
 
     public int convertirEnMinutos(){
-        return this.hora * 60 + this.minutos + (this.segundos / 60);
+        return this.hora * 60 + this.minutos + (this.segundos * 60);
     }
+
+    public int convertirEnSegundos(){
+        int calculoM= this.minutos + (this.hora / 60);
+        return this.segundos + (calculoM * 60);
+    }
+
 
 }
