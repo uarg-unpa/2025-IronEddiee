@@ -3,52 +3,73 @@ package TrabajosPracticos.tp2.clasePracticas;
 
 
 public class Persona {
-    //atributos
-    String nombre;
-    String apellido;
-    int edad;
-    int dni;
+    private String nombre;
+    private int edad;
+    private String dni;
+    private char sexo;
+    private double peso;
+    private double altura;
+    private Domicilio domicilio; // ¡Aquí el atributo complejo! Inicialícenlo en constructores
 
-
-    public Persona(String nombre, String apellido, int edad, int dni){
-        this.nombre= nombre;
-        this.apellido= apellido;
-        this.edad=edad;
-        this.dni= dni;
-    }
-
-    public String getNombre(){
-        return this.nombre;
-    }
-    public String getApellido(){
-        return this.apellido;
-    }
-    public int getEdad(){
-        return this.edad;
-    }
-    public int getDni(){
-        return this.dni;
-    }
-
-    
-    public void setNombre (String nombre){
-        this.nombre= nombre;
-    }
-    public void setApellido(String apellido){
-        this.apellido= apellido;
-    }
-    public void setEdad(int edad){
-        this.edad= edad;
-    }
-    public void setDni(int dni){
-        this.dni= dni;
-    }
-
-    public boolean mayorDeEdad(){
-        if (this.edad >= 18){
-            return true;
-        }else{
-            return false;
+    // Constructor con nombre (solo asigna nombre, el resto por defecto de Java)
+    public Persona(String nombre) {
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            this.nombre = nombre;
         }
+        this.domicilio = new Domicilio("", 0); // Inicializa el objeto complejo con valores por defecto
+    }
+
+    // Constructor completo
+    public Persona(String nombre, int edad, String dni, char sexo, double peso, double altura, Domicilio domicilio) {
+        if (nombre != null && !nombre.trim().isEmpty()) {
+            this.nombre = nombre;
+        }
+
+        if (edad >= 0) {
+            this.edad = edad;
+        }
+
+        if (dni != null && !dni.trim().isEmpty()) {
+            this.dni = dni;
+        }
+
+        if (comprobarSexo(sexo) == true) {
+            this.sexo = sexo;
+        }else{
+            this.sexo= 'I';
+        }
+
+        if (peso >= 0) {
+            this.peso = peso;
+        }
+
+        if (altura >= 0) {
+            this.altura = altura;
+        }
+
+        this.domicilio = domicilio; // Asigna el objeto complejo
+    }
+
+    // Método esMayorDeEdad
+    public boolean esMayorDeEdad() {
+        return edad >= 18; //avanzado pero lo dejo para que sus cerebros se activen 
+    }
+
+    // Método privado para validar sexo
+    private boolean comprobarSexo(char sexo) {
+        return sexo == 'M' || sexo == 'F';
+        //completar
+    }
+
+    // toString
+    
+    public String toString() {
+        return "Persona [Nombre= " + nombre + ", Edad= " + edad + ", DNI= " + dni +
+               ", Sexo= " + sexo + ", Peso= " + peso + ", Altura= " + altura + ", Domicilio= " + domicilio + "]";
+    }
+
+   
+    public String infoDomicilio() {
+        return "Domicilio de " + nombre + ": " + domicilio + ". ¿Completo? " + domicilio.esCompleto();
     }
 }

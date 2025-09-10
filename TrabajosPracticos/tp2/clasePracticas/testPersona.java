@@ -1,36 +1,19 @@
 package TrabajosPracticos.tp2.clasePracticas;
-import java.util.Scanner;
 
 public class testPersona {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("ingrese su nombre");
-        String nombre= scanner.nextLine();
-
-        System.out.println("ingrese su apellido");
-        String apellido= scanner.nextLine();
-
-        System.out.println("ingrese su dni");
-        int dni = scanner.nextInt();
-
-        System.out.println("ingrese su edad");
-        int edad= scanner.nextInt();
-
-        Persona persona2;
-        persona2= new Persona(nombre, apellido, edad, dni);
-    
-        System.out.println(persona2.getNombre());
-        System.out.println(persona2.getApellido());
-        System.out.println(persona2.getDni());
-        System.out.println(persona2.getEdad());
-
-          if (persona2.mayorDeEdad() == true){
+        Domicilio dom1 = new Domicilio("Av. Rivadavia", 1234);
+        Persona p1 = new Persona("Laura", 20, "12345678", 'M', 60.5, 1.65, dom1);
+        System.out.println(p1);
+        System.out.println(p1.infoDomicilio());
+        
+        if (p1.esMayorDeEdad() == true){    
             System.out.println("Es mayor de edad");
-        }else{
-            System.out.println("No es mayor de edad");
+        } else {
+            System.out.println("Es menor de edad");
         }
-        scanner.close();
     }
 
-}
+    }
+
