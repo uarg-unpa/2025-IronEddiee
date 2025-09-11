@@ -17,15 +17,18 @@ public class tesProducto {
         int stock = scanner.nextInt();
         scanner.nextLine();
 
+        //creacion del primer objeto
         Producto producto1= new Producto(nombre, descripcion, precio, proveedor1, stock);
         System.out.println(producto1);
         
+        //evalua si es caro o no (mayor a 1000)
         if(producto1.esCaro() == true){
             System.out.println("El producto es caro $" + producto1.getPrecio());
         }else{
             System.out.println("Es barato $" + producto1.getPrecio());
         }
-
+        
+        //actualizar precio
         System.out.println("Actualice el precio");
         double nuevoPrecio= scanner.nextDouble();
         scanner.nextLine();

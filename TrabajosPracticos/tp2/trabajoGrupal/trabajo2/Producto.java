@@ -15,17 +15,35 @@ public class Producto {
         this.stock= stock;
     }
 
-    //otros metodos
+    //metodos get
     public String getNombre(){
         return this.nombre;
+    }
+    public String getDescripcion(){
+        return this.descripcion;
     }
     public double getPrecio(){
         return this.precio;
     }
+    public int getStock(){
+        return this.stock;
+    }
 
+
+    //metodo set
+    public void setNombre(String nombre){
+        this.nombre= nombre;
+    }
+    public void  setDescripcion(String descripcion){
+        this.descripcion= descripcion;
+    }
+    public void setStock(int stock){
+        this.stock= stock;
+    }
     public void setPrecio(double precio){
         this.precio= precio;
     }
+
 
     public boolean esCaro(){
         if (this.precio > 1000){
