@@ -59,6 +59,6 @@ public class Obra {
     }
 
     public String toString(){
-        return "Obra [ " + this.nombre + ", Director: " + this.director + ", Precio: " + this.precio + this.mostrarDuracion() + "]";
+        return "Obra [ " + this.nombre + ", Director: " + this.director + ", Precio: " + this.precio  + "]";
     }
 }
