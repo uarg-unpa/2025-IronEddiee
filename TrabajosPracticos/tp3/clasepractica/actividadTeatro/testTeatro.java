@@ -24,7 +24,7 @@ public class testTeatro {
                     if(teatroCentro.estaLlena()){
                         System.out.println("Ya hay 3 funciones asignadas");
                     }else{
-                        System.out.println("Ingrese su nombre");
+                        System.out.println("Ingrese el nombre de la obra");
                         String nombre= sc.nextLine();
 
                         System.out.println("Que precio tiene");
@@ -48,7 +48,7 @@ public class testTeatro {
                     break;
                 
                 case 3:
-                    System.out.println(teatroCentro + "\n--Funciones--" + teatroCentro.mostrarObras());
+                    System.out.println(teatroCentro + "\n--Funciones--\n" + teatroCentro.mostrarObras());
                     break;
 
                 case 0:
@@ -56,13 +56,7 @@ public class testTeatro {
                 default:
                     break;
             }
-
-
-
-
         }while(opcion != 0);
-
-
         sc.close();
     }   
 }

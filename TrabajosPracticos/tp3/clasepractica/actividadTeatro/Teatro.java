@@ -58,12 +58,12 @@ public class Teatro {
 
     //mostrar obras
     public String mostrarObras(){
-        String resultado= null;
+        String resultado= "";
         for (int cont= 0; cont < obasMax; cont ++ ){
             if (obras [cont] != null){
-                resultado= "Obra: " + obras[cont].getNombre() + ", Duracion: " + obras[cont].getDuracion() + "min, Precio: $" + obras[cont].getPrecio();
+                resultado= resultado + "Obra: " + obras[cont].getNombre() + ", Duracion: " + obras[cont].getDuracion() + "min, Precio: $" + obras[cont].getPrecio() + "\n";
             }else{
-                resultado= "Obra" + (cont + 1) + "no asignado";
+                resultado= resultado + "Obra" + (cont + 1) + "no asignado\n";
             }
         }
         return resultado;
