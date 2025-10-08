@@ -122,7 +122,7 @@ public class testRectangulo {
                 case 7:
                     System.out.println("Se termino el proceso");
                     condicion= false;
-
+                    break;
                 //si ingresa un valor invalido avisa
                 default:
                     System.out.println("El valor ingresado no es valido, intente nuevamente");
