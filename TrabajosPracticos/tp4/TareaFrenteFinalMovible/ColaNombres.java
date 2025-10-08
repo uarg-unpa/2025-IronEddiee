@@ -5,39 +5,40 @@ public class ColaNombres {
     private int frente, ultimo;
     private String [] elementos;
 
-    public ColaNombres()
-    {
-    frente=0;
-    ultimo=0;
-    elementos=new String [maxcola];
+    public ColaNombres(){
+        frente=0;
+        ultimo=0;
+        elementos=new String [maxcola];
     }
 
-
-    public boolean estaVacia(){
+    public boolean estaVacio(){
         return ultimo== 0;
     }
-    
+    public boolean estalleno(){
+        int sigultimo = siguiente(ultimo);
+        return sigultimo == frente;
+    }
 
-    public boolean estaLlena(){
-        return ultimo== maxcola;
+    private int siguiente(int indice){
+        if (indice == maxcola -1){
+            return 0;
+        }else{
+            return indice++;
+        }
     }
 
     public void insertar(String nombre){
-        elementos[ultimo] = nombre;
-        ultimo ++;
+        ultimo= siguiente(ultimo);
+        elementos [ultimo]= nombre;
     }
 
-    public String borrar(){
-        String aux = elementos[frente];
-
-        for (int i= 0; i < ultimo; i ++){
-            elementos[i] = elementos[i +1];
-        }
-        ultimo --;
-        return aux;
+    public String borrar (){
+        frente= siguiente(frente);
+        return elementos[frente];
     }
 
     public String peek(){
-        return elementos[frente];        
+        return elementos[frente];
     }
+
 }
