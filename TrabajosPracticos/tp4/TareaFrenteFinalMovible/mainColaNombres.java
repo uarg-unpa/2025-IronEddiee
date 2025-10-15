@@ -20,7 +20,7 @@ public class mainColaNombres {
             switch (opcion) {
                 case 1:
                     if(! nombres.estalleno()){
-                        System.out.println("Ingrese la letra");
+                        System.out.println("Ingrese el nombre");
                         String letra= sc.nextLine();
                         nombres.insertar(letra);
                     }else{
@@ -31,7 +31,7 @@ public class mainColaNombres {
                 case 2:
                     if (!nombres.estaVacio()){
                         
-                        System.out.println("Se fue la letra " + nombres.borrar());
+                        System.out.println("Se fue el nombre " + nombres.borrar());
                     }else{
                         System.out.println("La cola ya esta vacia");
 

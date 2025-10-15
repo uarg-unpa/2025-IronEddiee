@@ -2,43 +2,38 @@ package TrabajosPracticos.tp4.TareaFrenteFinalMovible;
 
 public class ColaNombres {
     private final int maxcola= 5;
-    private int frente, ultimo;
+    private int frente, ultimo, contador;
     private String [] elementos;
 
     public ColaNombres(){
         frente=0;
         ultimo=0;
+        contador= 0;
         elementos=new String [maxcola];
     }
 
     public boolean estaVacio(){
-        return ultimo== 0;
+        return frente == ultimo;
     }
     public boolean estalleno(){
-        int sigultimo = siguiente(ultimo);
-        return sigultimo == frente;
-    }
-
-    private int siguiente(int indice){
-        if (indice == maxcola -1){
-            return 0;
-        }else{
-            return indice++;
-        }
+        return (ultimo + 1) % maxcola == frente;
     }
 
     public void insertar(String nombre){
-        ultimo= siguiente(ultimo);
+        ultimo= (ultimo + 1) % maxcola;
         elementos [ultimo]= nombre;
+        contador ++;
     }
 
     public String borrar (){
-        frente= siguiente(frente);
-        return elementos[frente];
+       frente = (frente + 1) % maxcola;
+       contador --;
+       return elementos [frente];
+       
     }
 
     public String peek(){
-        return elementos[frente];
+        return elementos[(frente + 1) % maxcola] + " Cantidad de nombres: " + this.contador ;
     }
 
 }
