@@ -1,4 +1,4 @@
-package TrabajosPracticos.tp3.clasepractica.actividad1;
+package TrabajosPracticos.practicaEnClases.actividad1;
 
 import java.util.Scanner;
 
@@ -12,6 +12,7 @@ public class tesPila {
             System.out.println("\n=== MENÚ DE PILA ===");
             System.out.println("1. Meter elemento");
             System.out.println("2. Sacar elemento");
+            System.out.println("3. cantidad de ocurrencias");
             System.out.println("4. Verificar estado (vacía/llena)");
             System.out.println("0. Salir");
             System.out.print("Opción: ");
@@ -38,7 +39,12 @@ public class tesPila {
                     }
                     break;
 
-                         case 4: // Verificar estado
+                case 3:
+                    System.out.println("Que numero es?");
+                    int numero= sc.nextInt();
+                    System.out.println("El numero " + numero + "se repite " + pila.cantOcurrencias(numero) + " veces en la pila");    
+
+                case 4: // Verificar estado
                     System.out.println("¿Vacía? " + pila.estaVacia() + " | ¿Llena? " + pila.estaLlena());
                     break;
 

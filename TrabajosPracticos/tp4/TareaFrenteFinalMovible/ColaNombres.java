@@ -21,7 +21,7 @@ public class ColaNombres {
 
     public void insertar(String nombre){
         ultimo= (ultimo + 1) % maxcola;
-        elementos [ultimo]= nombre;
+        elementos [ultimo]= nombre; 
         contador ++;
     }
 

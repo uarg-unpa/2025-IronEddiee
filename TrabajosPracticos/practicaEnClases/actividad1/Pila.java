@@ -1,4 +1,4 @@
-package TrabajosPracticos.tp3.clasepractica.actividad1;
+package TrabajosPracticos.practicaEnClases.actividad1;
 
 public class Pila {
     private int[] elementos; // Array para almacenar los elementos
@@ -36,6 +36,26 @@ public class Pila {
         int aux= this.elementos[this.cima];
         this.cima --;
         return aux;
+    }
+
+    public int cantOcurrencias(int elem){
+        Pila aux= new Pila();
+        int contador=0;
+        while (!estaVacia()) {
+            int elemento= sacar();
+            
+            if(elemento == elem){
+                contador ++;
+                }
+            aux.meter(elemento);
+
+        }
+
+        while (!aux.estaVacia()) {
+            meter(aux.sacar());
+        }
+
+        return contador;
     }
 
 }
