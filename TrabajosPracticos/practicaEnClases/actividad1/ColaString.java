@@ -34,7 +34,7 @@ public class ColaString {
         ultimo --;
         return aux;
     }
-
+/* 
     public String mostrar(){
         String [] aux= new String [maxCola];
 
@@ -43,4 +43,5 @@ public class ColaString {
             return elemento;
         }
     }
+        */
 }
