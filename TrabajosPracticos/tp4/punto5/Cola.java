@@ -8,17 +8,16 @@ public class Cola {
     public Cola(){
         this.maxCola= 5;
         this.frente= 0;
-        this.ultimo= 0;
-        this.contador= 0;
+        this.ultimo= -1;
         elementos= new int [maxCola];
     }
 
     public boolean estaVacia(){
-        return ultimo== 0; 
+        return ultimo== -1; 
     }
 
     public boolean estaLlena(){
-        return ultimo == maxCola;
+        return ultimo == (maxCola - 1);
     }
 
     public int getContador(){
@@ -26,9 +25,8 @@ public class Cola {
     }
 
     public void insertar(int numero){
-        elementos[ultimo]= numero;
-        contador++;
         ultimo++;
+        elementos[ultimo]= numero;
     }
 
     public int borrar(){
@@ -38,7 +36,6 @@ public class Cola {
             elementos [i]= elementos [i + 1];
         }
         ultimo--;
-        contador --;
         return aux;
     }
 
@@ -46,24 +43,23 @@ public class Cola {
         return elementos[frente];        
     }
 
-    public void repetidos(){
-        Cola aux= new Cola();
-        int [] datos= new int [maxCola];
-        int indice= 0;
 
-        while (!estaVacia()) {
+    public int borraRepetido(int valor){
+        Cola aux= new Cola();
+        int contador= 0;
+        while(!estaVacia()){
             int numero= borrar();
-            aux.insertar(numero);
-            datos [indice]= numero;
-            indice ++;
+            if (numero != elementos [frente]){
+                aux.insertar(numero);
+            }else{
+                contador ++;
+            }
         }
 
         while (!aux.estaVacia()) {
-            for (int i= 0; i < maxCola; i++){
-                if(aux.peek() != datos [i] ){
-                    insertar(aux.borrar());
-                }
-            }
+            insertar(aux.borrar());
         }
+
+        return contador;
     }
 }

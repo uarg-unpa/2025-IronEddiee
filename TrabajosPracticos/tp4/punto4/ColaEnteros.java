@@ -11,17 +11,17 @@ public class ColaEnteros {
     public ColaEnteros(int maximo){
         this.maxCola= maximo;
         this.frente= 0;
-        this.ultimo= 0;
+        this.ultimo= -1;
         this.contador= 0;
         elementos= new int [maxCola];
     }
 
     public boolean estaVacia(){
-        return ultimo== 0; 
+        return ultimo== -1; 
     }
 
     public boolean estaLlena(){
-        return ultimo == maxCola;
+        return ultimo == (maxCola - 1);
     }
 
     public int getContador(){
@@ -29,9 +29,9 @@ public class ColaEnteros {
     }
 
     public void insertar(int numero){
+        ultimo++;
         elementos[ultimo]= numero;
         contador++;
-        ultimo++;
     }
 
     public int borrar(){
