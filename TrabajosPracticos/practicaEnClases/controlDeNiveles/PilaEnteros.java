@@ -61,10 +61,6 @@ public class PilaEnteros {
         return max - nivelactual;
     }
 
-    public void agregarNivel(int valor){
-        this.max = this.max + valor;
-    }
-
     public int cantOcurrencias(int numero){
         PilaEnteros pilaAux= new PilaEnteros(); 
         int contador= 0;
@@ -83,5 +79,9 @@ public class PilaEnteros {
         }
 
         return contador;
+    }
+
+    public int peek(){
+        return enteros [cima];
     }
 }

@@ -18,8 +18,8 @@ public class testNiveldeEnergia {
             System.out.println("2 Sacar Un Valor en especifico");
             System.out.println("3 sacar el ultimo valor");
             System.out.println("4 Verificar cuantas veces se repite un valor de energia");
-            System.out.println("5 agregar un nivel de espacio");
-            System.out.println("6 Consultar nivel actual");
+            System.out.println("5 Consultar nivel actual");
+            System.out.println("6 Mostrar el ultimo nivel de la pila");
             System.out.println("0 Terminar proceso");
             opcion= sc.nextInt();
 
@@ -30,7 +30,7 @@ public class testNiveldeEnergia {
                         int valor= sc.nextInt();
                         energias.meter(valor);
                     }else{
-                        System.out.println("No se puede realizar esta operacion, la pila esta llena, elimine un valor o agregue un nivel");
+                        System.out.println("No se puede realizar esta operacion, la pila esta llena, elimine un valor.");
                     }
                     break;
                 
@@ -67,24 +67,19 @@ public class testNiveldeEnergia {
                         System.out.println("No se puede realizar esta operacion, la pila esta vacia");
                     }
                     break;
-                
+
                 case 5:
-                    if(energias.estaLlena()){
-                        System.out.println("cuantos niveles quiere agregar?");
-                        int nivel= sc.nextInt();
-                        energias.agregarNivel(nivel);
-                        System.out.println("Se agregaron " + nivel + " a la pila, espacios disponibles: " + energias.nivelesDisponibles() + ", nivel actual " + energias.getNivelActual());
-                    }else{
-                        System.out.println("Aun tiene espacios disponibles para ocupa: " + energias.nivelesDisponibles() + " disponibles");
-                    }
+                    int actual= energias.getNivelActual();
+                    int disponibles= energias.nivelesDisponibles();
+                    System.out.println("Espacios ocupados: " + actual + "\nEspacios disponibles: " + disponibles);
                     break;
 
                 case 6:
-                    int actual= energias.getNivelActual();
-                    int disponibles= energias.nivelesDisponibles();
-                    System.out.println("Nivel actual: " + actual + "\nNiveles disponibles: " + disponibles);
+                    if(!energias.estaVacia()){
+                        System.out.println("El ultimo nivel de la pila es " + energias.peek());
+                    }
                     break;
-                
+
                 case 0:
                     System.out.println("Terminando proceso...");
                     break;
