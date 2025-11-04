@@ -4,7 +4,10 @@ import java.util.Scanner;
 public class testLista {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ListaReproduccion lista= new ListaReproduccion();
+
+        System.out.println("Cuantos temas quiere ingresar?");
+        int cantidad= sc.nextInt();
+        ListaReproduccion lista= new ListaReproduccion(cantidad);
 
 
         int opcion;
@@ -30,6 +33,7 @@ public class testLista {
                         int año= sc.nextInt();
                         Musica tema= new Musica(titulo, interprete, genero, año);
                         lista.insertar(tema);
+                        System.out.println("quedan " + lista.cantidadDispo() + " lugares disponibles");
 
                     }else{
                         System.out.println("La lista ya esta llena");
@@ -38,7 +42,7 @@ public class testLista {
 
                 case 2:
                     if (!lista.estaVacio()){
-                        Musica reproducir= lista.borrar();
+                        Musica reproducir= lista.sacar();
                         System.out.println("Se esta reproduciendo el tema " + reproducir + "...");
                         System.out.println("Terminó. El siguiente tema es " +  lista.peek());
                     }else{
@@ -48,14 +52,17 @@ public class testLista {
                 
                 case 3:
                     if(!lista.estaVacio()){
-                        Musica saltear= lista.borrar();
+                        Musica saltear= lista.sacar();
                         System.out.println("Se salteó el tema " + saltear);
-
+                        System.out.println("quedan " + lista.cantidadDispo() + " temas a reproducir.");
                     }else{
                         System.out.println("La lista de reproduccion ya esta vacia");
                     }
                     break;
 
+                case 0:
+                    System.out.println("Terminando proceso...");
+                    break;
                 
                 default:
                     System.out.println("El valor ingresado no es valido, intente nuevamente");

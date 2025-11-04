@@ -1,48 +1,62 @@
 package TrabajosPracticos.practicaEnClases.listaDeReproduccion;
 
 public class ListaReproduccion {
-    private final int maxcola = 2;
-    private int frente, ultimo;
+    private int frente, ultimo, maxCola;
     private Musica [] lista;
 
-    public ListaReproduccion(){
-        this.frente= 0;
-        this.ultimo= 0;
-        lista= new Musica[maxcola];
+    public ListaReproduccion(int maximo){
+		this.maxCola= maximo;
+		this.frente= 0;
+        this.ultimo= -1;
+        lista= new Musica[maxCola];
     }
 
-    public boolean estaVacio()
-	{
-		return (ultimo == frente);
-	}
-   
-	public boolean estaLleno()
-	{
-		int sigUltimo=siguiente(ultimo);
-		return (sigUltimo == frente);
-	}
-	
-	private int siguiente(int subind)
-	{
-		if (subind == maxcola -1)
-			return 0;
-		else
-			return ++subind;
-	}
-	
-	public void insertar(Musica elem)
-	{		
-		ultimo =siguiente(ultimo);
-		lista[ultimo]=elem;		
-	}
-	
-	public Musica borrar()
-	{
-		frente =siguiente(frente);
-		return lista[frente];
-	}
-
-     public Musica peek(){
-        return lista[(frente + 1) % maxcola];
+	public boolean estaVacio(){
+        return ultimo== -1; 
     }
+
+    public boolean estaLleno(){
+        return ultimo == (maxCola -1);
+    }
+
+	public void insertar(Musica nuevo){
+		ultimo++;
+        lista[ultimo]= nuevo;
+        
+    }
+
+	public 	Musica sacar(){
+        Musica aux = lista[frente];
+
+        for (int i= 0; i < ultimo; i ++){
+            lista[i] = lista[i +1];
+        }
+        ultimo --;
+        return aux;
+    }
+
+    public Musica peek(){
+        return lista[frente];
+    }
+
+    public int contador(){
+        ListaReproduccion aux= new ListaReproduccion(maxCola);
+        int contador= 0;
+
+        while(!estaVacio()){
+            aux.insertar(sacar());
+            contador++;
+        }
+
+        while (!aux.estaVacio()) {
+            insertar(aux.sacar());
+        }
+        return contador;
+    }
+
+    public int cantidadDispo(){
+        return (maxCola) - contador();
+    }
+
+	
 }
