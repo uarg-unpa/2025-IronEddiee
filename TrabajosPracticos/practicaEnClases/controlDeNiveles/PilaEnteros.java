@@ -39,11 +39,12 @@ public class PilaEnteros {
         while (!estaVacia()) {
             int elemento= sacar();
 
-            if (elemento == valor){
-                eliminado = elemento;
+            if (elemento != valor){
+                pilaAuxiar.meter(elemento);
+            }else{
+                eliminado= elemento;
             }
 
-            pilaAuxiar.meter(elemento);
         }
 
          while (!pilaAuxiar.estaVacia()) {
@@ -81,7 +82,7 @@ public class PilaEnteros {
         return contador;
     }
 
-    public int peek(){
+    public int mostrarCima(){
         return enteros [cima];
     }
 }

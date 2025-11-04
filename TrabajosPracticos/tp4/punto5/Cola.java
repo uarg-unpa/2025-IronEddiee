@@ -2,7 +2,7 @@ package TrabajosPracticos.tp4.punto5;
 /*5. Agregar un método en la clase Cola que elimine los elementos repetidos de la cola */
 
 public class Cola {
-      private int [] elementos;
+    private int [] elementos;
     private int frente, ultimo, maxCola, contador;
 
     public Cola(){

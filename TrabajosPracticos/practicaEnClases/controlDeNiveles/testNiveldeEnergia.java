@@ -76,7 +76,7 @@ public class testNiveldeEnergia {
 
                 case 6:
                     if(!energias.estaVacia()){
-                        System.out.println("El ultimo nivel de la pila es " + energias.peek());
+                        System.out.println("El ultimo nivel de la pila es " + energias.mostrarCima());
                     }
                     break;
 
